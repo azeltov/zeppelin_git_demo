@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "from operator import add\nlines \u003d spark.read.text(\"/HdiSamples/HdiSamples/FoodInspectionData/README\").rdd.map(lambda r: r[0])\ncounters \u003d lines.flatMap(lambda x: x.split(\u0027 \u0027)) \\\n             .map(lambda x: (x, 1)) \\\n             .reduceByKey(add)\n\ncoll \u003d counters.collect()\nsortedCollection \u003d sorted(coll, key \u003d lambda r: r[1], reverse \u003d True)\n\nfor i in range(0, 5):\n     print(sortedCollection[i])",
+      "text": "lines \u003d spark.read.text(\"/HdiSamples/HdiSamples/FoodInspectionData/README\").rdd.map(lambda r: r[0])\ncounters \u003d lines.flatMap(lambda x: x.split(\u0027 \u0027)) \\\n             .map(lambda x: (x, 1)) \\\n             .reduceByKey(add)\n\ncoll \u003d counters.collect()\nsortedCollection \u003d sorted(coll, key \u003d lambda r: r[1], reverse \u003d True)\n\nfor i in range(0, 5):\n     print(sortedCollection[i])",
       "user": "user1",
-      "dateUpdated": "Feb 12, 2019 9:50:49 PM",
+      "dateUpdated": "Feb 12, 2019 9:53:50 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -18,11 +18,22 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:1: error: \u0027;\u0027 expected but \u0027import\u0027 found.\nfrom operator import add\n              ^"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1550008221589_-1587588254",
       "id": "20190212-215021_1783583298",
       "dateCreated": "Feb 12, 2019 9:50:21 PM",
-      "status": "READY",
+      "dateStarted": "Feb 12, 2019 9:50:49 PM",
+      "dateFinished": "Feb 12, 2019 9:51:26 PM",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
